@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hrishi Fitness Club</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="Google-favicon-2015.png">
+    <meta name="description" content="Hrishi Fitness Club - Your ultimate destination for fitness classes and products.">
+    <meta name="keywords" content="Fitness, Gym, Training, Yoga, Products">
+    <meta name="author" content="Your Name">
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#classes">Classes</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#about">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Welcome to Hrishi Fitness Club</h1>
+        <p>Your journey to fitness starts here!</p>
+    </section>
+
+    <!-- Features Section -->
+<section id="features">
+    <h2>Our Features</h2>
+    <div class="card-container">
+        <div class="card feature-card" onclick="showDetails('Personal Training')">
+            <h3>Personal Training</h3>
+            <p>Get one-on-one personalized training plans.</p>
+        </div>
+        <div class="card feature-card" onclick="showDetails('Group Classes')">
+            <h3>Group Classes</h3>
+            <p>Join a community and workout together.</p>
+        </div>
+        <div class="card feature-card" onclick="showDetails('Nutrition Plans')">
+            <h3>Nutrition Plans</h3>
+            <p>Customized meal plans to match your goals.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Classes Section -->
+<section id="classes">
+    <h2>Our Classes</h2>
+    <div class="card-container">
+        <div class="card class-card" onclick="window.open('ZOOM_MEETING_LINK_YOGA', '_blank')">
+            <h3>Yoga</h3>
+            <p>Relaxing and strengthening yoga sessions.</p>
+        </div>
+        <div class="card class-card" onclick="window.open('ZOOM_MEETING_LINK_STRENGTH', '_blank')">
+            <h3>Strength Training</h3>
+            <p>Build muscle and strength with guided classes.</p>
+        </div>
+        <div class="card class-card" onclick="window.open('ZOOM_MEETING_LINK_HIIT', '_blank')">
+            <h3>HIIT</h3>
+            <p>High-Intensity Interval Training to burn fat fast.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- Products Section -->
+<section id="products">
+    <h2>Shop Our Products</h2>
+    <div class="card-container">
+        <div class="card product-card" onclick="showDetails('Protein Supplements')">
+            <h3>Protein Supplements</h3>
+            <p>High-quality protein to boost your results.</p>
+            <button onclick="addToCart('Protein Supplements')">Add to Cart</button>
+        </div>
+        <div class="card product-card" onclick="showDetails('Gym Equipment')">
+            <h3>Gym Equipment</h3>
+            <p>Top-notch equipment for your home gym.</p>
+            <button onclick="addToCart('Gym Equipment')">Add to Cart</button>
+        </div>
+        <div class="card product-card" onclick="showDetails('Fitness Apparel')">
+            <h3>Fitness Apparel</h3>
+            <p>Stylish and comfortable workout wear.</p>
+            <button onclick="addToCart('Fitness Apparel')">Add to Cart</button>
+        </div>
+    </div>
+</section>
+
+
+<!-- Gallery Section -->
+<section id="gallery">
+    <h2>Gallery</h2>
+    <div class="card-container gallery-images">
+        <img src="gym-image-1.jpeg" alt="Gym Image 1" class="gallery-card">
+        <img src="gym-image-2.avif" alt="Gym Image 2" class="gallery-card">
+        <img src="gym-image-3.jpeg" alt="Gym Image 3" class="gallery-card">
+    </div>
+</section>
+
+<!-- Modal for showing details -->
+<div id="detailsModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle">Title</h2>
+        <p id="modalDescription">Description</p>
+    </div>
+</div>
+
+
+
+    <!-- Products Section -->
+    <section id="products">
+        <h2>Shop Our Products</h2>
+        <div class="product-cards">
+            <div class="product-card">Protein Supplements</div>
+            <div class="product-card">Gym Equipment</div>
+            <div class="product-card">Fitness Apparel</div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <form id="contact-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        
+        <button type="submit">Send Message</button>
+    </form>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    (function(){
+        emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
+    })();
+    
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+            .then(function() {
+                alert('Message sent successfully!');
+                document.getElementById('contact-form').reset();
+            }, function(error) {
+                alert('Failed to send message. Please try again.');
+                console.error('Error:', error);
+            });
+    });
+</script>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Hrishi Fitness Club is dedicated to helping you achieve your fitness goals.</p>
+    </section>
+
+    <!-- Social Media Links -->
+    <footer>
+        <div class="social-media">
+            <a href="https://www.facebook.com/yourpage" target="_blank">
+                <img src="facebook.jpg" alt="Facebook" width="30">
+            </a>
+            <a href="https://www.instagram.com/yourpage" target="_blank">
+                <img src="instgram.jpg" alt="Instagram" width="30">
+            </a>
+            <a href="https://www.twitter.com/yourpage" target="_blank">
+                <img src="twitter.png" alt="Twitter" width="30">
+            </a>
+        </div>
+    </footer>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
